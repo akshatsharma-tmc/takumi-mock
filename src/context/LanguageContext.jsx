@@ -16,7 +16,7 @@ const translations = {
     },
     // Hero Section
     hero: {
-      tagline: 'Indian Innovation with Japanese Technology',
+      tagline: 'Japanese Innovation with Japanese Technology',
       taglineJp: '日本の技術でインドの革新',
       subtitle: 'Powering the future of motion control',
       cta: 'Discover Our Vision',
