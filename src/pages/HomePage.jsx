@@ -154,12 +154,6 @@ const HomePage = () => {
                 {t('intro.description')}
               </p>
 
-              <div className="p-6 bg-gray-50 border-l-4 border-takumi-red">
-                <p className="text-gray-700 italic">
-                  "{t('intro.mission')}"
-                </p>
-              </div>
-
               <Link
                 to="/about"
                 data-testid="intro-learn-more"
@@ -328,7 +322,7 @@ const HomePage = () => {
               </div>
 
               <Link
-                to="/products"
+                to="/ecosystem"
                 data-testid="view-products-btn"
                 className="inline-flex items-center space-x-2 text-takumi-red font-semibold hover:space-x-3 transition-all"
               >

@@ -37,23 +37,23 @@ const TeamPage = () => {
   const teamMembers = [
     {
       key: 'britto',
-      image: '/BrittoSir.jpg'
+      image: '/BrittoSan.jpg'
     },
     {
       key: 'aravind',
-      image: '/AravindSir.jpg'
+      image: '/AravindSan.jpg'
     },
     {
       key: 'prasanth',
-      image: 'https://images.pexels.com/photos/450214/pexels-photo-450214.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+      image: '/PrasanthSan.jpg'
     },
     {
       key: 'mohara',
-      image: 'https://images.pexels.com/photos/5255409/pexels-photo-5255409.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+      image: '/MoharaSan.jpg'
     },
     {
       key: 'shimogaki',
-      image: 'https://images.pexels.com/photos/7580822/pexels-photo-7580822.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+      image: '/ShimogakiSan.jpg'
     }
   ];
 

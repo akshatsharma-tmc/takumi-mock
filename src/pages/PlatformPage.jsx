@@ -303,7 +303,7 @@ const PlatformPage = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              to="/products"
+              to="/ecosystem"
               data-testid="platform-products-cta"
               className="inline-flex items-center justify-center space-x-2 px-8 py-4 bg-white text-takumi-red font-semibold rounded-sm hover:bg-gray-100 transition-colors"
             >

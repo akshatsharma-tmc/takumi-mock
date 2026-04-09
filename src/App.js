@@ -7,15 +7,15 @@ import { Toaster } from "sonner";
 // Components
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 // Pages
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
 import PlatformPage from "./pages/PlatformPage";
-import ProductsPage from "./pages/ProductsPage";
+import EcosystemPage from "./pages/EcosystemPage";
 import PartnershipsPage from "./pages/PartnershipsPage";
 import TeamPage from "./pages/TeamPage";
-import FacilitiesPage from "./pages/FacilitiesPage";
 import ContactPage from "./pages/ContactPage";
 
 function App() {
@@ -23,16 +23,16 @@ function App() {
     <LanguageProvider>
       <div className="App min-h-screen flex flex-col">
         <BrowserRouter>
+          <ScrollToTop />
           <Navbar />
           <main className="flex-grow">
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/platform" element={<PlatformPage />} />
-              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/ecosystem" element={<EcosystemPage />} />
               <Route path="/partnerships" element={<PartnershipsPage />} />
               <Route path="/team" element={<TeamPage />} />
-              <Route path="/facilities" element={<FacilitiesPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>
