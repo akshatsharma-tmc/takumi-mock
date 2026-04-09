@@ -9,6 +9,9 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const location = useLocation();
 
+  // Check if we're on the homepage (which has dark hero background)
+  const isHomePage = location.pathname === '/';
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -25,10 +28,9 @@ const Navbar = () => {
     { path: '/', label: t('nav.home') },
     { path: '/about', label: t('nav.about') },
     { path: '/platform', label: t('nav.platform') },
-    { path: '/products', label: t('nav.products') },
+    { path: '/ecosystem', label: t('nav.ecosystem') },
     { path: '/partnerships', label: t('nav.partnerships') },
     { path: '/team', label: t('nav.team') },
-    { path: '/facilities', label: t('nav.facilities') },
     { path: '/contact', label: t('nav.contact') },
   ];
 
@@ -37,14 +39,28 @@ const Navbar = () => {
     return location.pathname.startsWith(path);
   };
 
+  // Determine navbar style based on page and scroll state
+  const getNavbarStyle = () => {
+    if (isScrolled) {
+      return 'glass border-b border-gray-100 shadow-sm';
+    }
+    // Only use transparent bg on homepage, other pages get solid bg immediately
+    return isHomePage ? 'bg-transparent' : 'glass border-b border-gray-100 shadow-sm';
+  };
+
+  // Determine text color based on page and scroll state
+  const getTextColor = (active) => {
+    if (active) return 'text-takumi-red';
+    if (isScrolled || !isHomePage) {
+      return 'text-industrial-slate hover:text-takumi-red';
+    }
+    return 'text-white/90 hover:text-white';
+  };
+
   return (
     <nav
       data-testid="navbar"
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'glass border-b border-gray-100 shadow-sm'
-          : 'bg-transparent'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${getNavbarStyle()}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
@@ -61,12 +77,12 @@ const Navbar = () => {
             />
             <div className="hidden sm:block">
               <span className={`font-manrope font-bold text-xl tracking-tight ${
-                isScrolled ? 'text-industrial-slate' : 'text-white'
+                isScrolled || !isHomePage ? 'text-industrial-slate' : 'text-white'
               }`}>
                 TAKUMI
               </span>
               <span className={`block text-xs tracking-widest uppercase ${
-                isScrolled ? 'text-gray-500' : 'text-white/70'
+                isScrolled || !isHomePage ? 'text-gray-500' : 'text-white/70'
               }`}>
                 Motion Controls
               </span>
@@ -80,13 +96,7 @@ const Navbar = () => {
                 key={link.path}
                 to={link.path}
                 data-testid={`nav-link-${link.path.replace('/', '') || 'home'}`}
-                className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-sm ${
-                  isActive(link.path)
-                    ? 'text-takumi-red'
-                    : isScrolled
-                    ? 'text-industrial-slate hover:text-takumi-red'
-                    : 'text-white/90 hover:text-white'
-                }`}
+                className={`px-4 py-2 text-sm font-medium transition-all duration-300 rounded-sm ${getTextColor(isActive(link.path))}`}
               >
                 {link.label}
               </Link>
@@ -99,7 +109,7 @@ const Navbar = () => {
               onClick={toggleLanguage}
               data-testid="language-toggle"
               className={`flex items-center space-x-2 px-3 py-2 rounded-sm border transition-all duration-300 ${
-                isScrolled
+                isScrolled || !isHomePage
                   ? 'border-gray-200 text-industrial-slate hover:border-takumi-red hover:text-takumi-red'
                   : 'border-white/30 text-white hover:border-white hover:bg-white/10'
               }`}
@@ -113,7 +123,7 @@ const Navbar = () => {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="mobile-menu-toggle"
               className={`lg:hidden p-2 rounded-sm transition-colors ${
-                isScrolled
+                isScrolled || !isHomePage
                   ? 'text-industrial-slate hover:bg-gray-100'
                   : 'text-white hover:bg-white/10'
               }`}
