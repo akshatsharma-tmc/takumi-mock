@@ -69,6 +69,11 @@ const PartnershipsPage = () => {
       name: 'ROHM', 
       logo: '/ROHMLogo.png',
       description: 'Power Management'
+    },
+    {
+      name: 'STMicroelectronics',
+      logo: '/StMicroelectronicsLogo.png',
+      description: 'Analog & Power'
     }
   ];
 
@@ -98,6 +103,11 @@ const PartnershipsPage = () => {
       name: 'HIOKI', 
       logo: '/HIOKILogo.png',
       description: 'Electrical Measurement'
+    },
+    {
+      name: 'SolidWorks',
+      logo: '/SolidWorksLogo.png',
+      description: '3D CAD & Simulation'
     }
   ];
 
@@ -112,9 +122,9 @@ const PartnershipsPage = () => {
       className="bg-white p-6 rounded-sm border border-gray-100 flex flex-col items-center hover:shadow-lg hover:border-takumi-red/20 transition-all group"
       style={{ transitionDelay: `${index * 50}ms` }}
     >
-      <div className="h-16 flex items-center justify-center mb-4 w-full">
+      <div className="h-20 flex items-center justify-center mb-4 w-full">
         {logoErrors[partner.name] ? (
-          <span className="font-manrope font-bold text-xl text-gray-400 group-hover:text-takumi-red transition-colors">
+          <span className="font-manrope font-bold text-xl text-gray-400 transition-colors">
             {partner.name}
           </span>
         ) : (
@@ -122,7 +132,7 @@ const PartnershipsPage = () => {
             src={partner.logo}
             alt={partner.name}
             onError={() => handleLogoError(partner.name)}
-            className="max-h-12 max-w-full object-contain filter grayscale group-hover:grayscale-0 transition-all"
+            className="max-h-16 max-w-full object-contain"
           />
         )}
       </div>

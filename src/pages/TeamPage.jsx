@@ -233,6 +233,13 @@ const TeamPage = () => {
             We're always looking for talented engineers and innovators to join our mission 
             of powering the future of motion control.
           </p>
+          <div className="mx-auto mb-8 max-w-3xl overflow-hidden rounded-sm border border-white/10 bg-white/10 p-0">
+            <img
+              src="https://via.placeholder.com/960x540?text=Team+Collage+Placeholder"
+              alt="Team collage placeholder"
+              className="w-full h-auto object-cover"
+            />
+          </div>
           <a
             href="/contact"
             data-testid="team-careers-cta"

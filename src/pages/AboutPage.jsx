@@ -73,6 +73,13 @@ const AboutPage = () => {
       flag: '🇮🇳',
       description: 'Engineering, Production & Test Lab',
       image: 'https://images.pexels.com/photos/6432110/pexels-photo-6432110.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600'
+    },
+    {
+      name: 'Takumi – Chennai',
+      country: 'India',
+      flag: '🇮🇳',
+      description: 'Upcoming',
+      image: 'https://via.placeholder.com/600x400?text=Upcoming'
     }
   ];
 
@@ -228,42 +235,6 @@ const AboutPage = () => {
                   <item.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="font-manrope text-xl font-bold">{item.label}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Ecosystem Section */}
-      <section
-        ref={setRef('ecosystem')}
-        data-testid="ecosystem-section"
-        className="py-24 lg:py-32 bg-white"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible.ecosystem ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            <span className="text-takumi-red font-semibold tracking-widest uppercase text-sm">
-              {t('intro.ecosystemTitle')}
-            </span>
-            <h2 className="font-manrope text-3xl sm:text-4xl font-bold text-industrial-slate mt-4">
-              {t('ecosystem.title')}
-            </h2>
-          </div>
-
-          <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-1000 delay-300 ${
-            isVisible.ecosystem ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            {t('ecosystem.items').map((item, index) => (
-              <div
-                key={index}
-                className="p-6 bg-gray-50 border border-gray-100 rounded-sm hover:border-takumi-red/30 hover:shadow-lg transition-all"
-              >
-                <div className="w-10 h-10 bg-takumi-red/10 rounded-sm flex items-center justify-center mb-4">
-                  <span className="text-takumi-red font-bold">{index + 1}</span>
-                </div>
-                <p className="text-gray-700 font-medium">{item}</p>
               </div>
             ))}
           </div>

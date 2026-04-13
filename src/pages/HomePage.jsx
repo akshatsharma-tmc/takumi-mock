@@ -106,25 +106,15 @@ const HomePage = () => {
               {t('hero.subtitle')}
             </p>
 
-            {/* CTA Button */}
-            <div className="pt-8 opacity-0 animate-fade-in-up animate-delay-600">
-              <Link
-                to="/about"
-                data-testid="hero-cta-btn"
-                className="inline-flex items-center space-x-3 px-10 py-5 bg-white text-takumi-red font-bold text-lg rounded-sm hover:bg-gray-100 transition-all duration-300 group"
-              >
-                <span>{t('hero.cta')}</span>
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            {/* Hero CTA removed intentionally */}
           </div>
+        </div>
 
-          {/* Scroll Indicator */}
-          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-0 animate-fade-in animate-delay-800">
-            <div className="flex flex-col items-center space-y-2 text-white/60">
-              <span className="text-sm">{t('hero.scrollHint')}</span>
-              <ChevronDown className="w-6 h-6 animate-bounce" />
-            </div>
+        {/* Scroll Indicator */}
+        <div className="absolute inset-x-0 bottom-12 flex justify-center opacity-0 animate-fade-in animate-delay-800">
+          <div className="flex flex-col items-center space-y-2 text-white/60">
+            <span className="text-sm">{t('hero.scrollHint')}</span>
+            <ChevronDown className="w-6 h-6 animate-bounce" />
           </div>
         </div>
       </section>

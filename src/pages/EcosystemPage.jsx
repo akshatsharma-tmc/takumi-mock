@@ -157,27 +157,28 @@ const EcosystemPage = () => {
       features: ['Performance Tuning', 'Efficiency Optimization', 'Thermal Management', 'Safety Compliance']
     },
     {
-      id: 'certification',
-      title: 'Product Qualification & Certification',
-      icon: FileCheck,
-      description: 'Complete certification and homologation support',
-      features: ['Compliance Testing', 'Regulatory Certification', 'Homologation', 'Documentation']
-    }
-  ];
-
-  // Partner Services
-  const partnerServices = [
-    {
       id: 'teardown',
       title: 'Tear-down & Benchmarking',
+      icon: Wrench,
       description: 'Competitive analysis and product benchmarking',
       features: ['Component Analysis', 'Cost Breakdown', 'Technology Assessment', 'Recommendations']
     },
     {
       id: 'value-engineering',
       title: 'Value Analysis & Value Engineering',
+      icon: Settings,
       description: 'Optimize cost while maintaining quality',
       features: ['Should-Costing', 'Design Optimization', 'Supplier Negotiation', 'BOM Reduction']
+    }
+  ];
+
+  // Partner Services
+  const partnerServices = [
+    {
+      id: 'certification',
+      title: 'Product Qualification & Certification',
+      description: 'Complete certification and homologation support',
+      features: ['Compliance Testing', 'Regulatory Certification', 'Homologation', 'Documentation']
     }
   ];
 
@@ -221,6 +222,41 @@ const EcosystemPage = () => {
               Comprehensive motion control ecosystem - from core products to partner solutions 
               and engineering services.
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        ref={setRef('ecosystem')}
+        data-testid="ecosystem-section"
+        className="py-24 lg:py-32 bg-white"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            isVisible.ecosystem ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
+            <span className="text-takumi-red font-semibold tracking-widest uppercase text-sm">
+              {t('intro.ecosystemTitle')}
+            </span>
+            <h2 className="font-manrope text-3xl sm:text-4xl font-bold text-industrial-slate mt-4">
+              {t('ecosystem.title')}
+            </h2>
+          </div>
+
+          <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-1000 delay-300 ${
+            isVisible.ecosystem ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
+            {t('ecosystem.items').map((item, index) => (
+              <div
+                key={index}
+                className="p-6 bg-gray-50 border border-gray-100 rounded-sm hover:border-takumi-red/30 hover:shadow-lg transition-all"
+              >
+                <div className="w-10 h-10 bg-takumi-red/10 rounded-sm flex items-center justify-center mb-4">
+                  <span className="text-takumi-red font-bold">{index + 1}</span>
+                </div>
+                <p className="text-gray-700 font-medium">{item}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -489,7 +525,7 @@ const EcosystemPage = () => {
                   Partner Services
                 </h2>
                 <p className="text-gray-600 mt-4 max-w-2xl">
-                  Extended services through our partner network.
+                  Certification and homologation support from our partner network.
                 </p>
               </div>
 

@@ -7,11 +7,9 @@ const translations = {
       home: 'Home',
       about: 'About',
       platform: 'Platform',
-      ecosystem: 'Ecosystem',
-      products: 'Products',
+      ecosystem: 'Takumi Ecosystem',
       partnerships: 'Partnerships',
       team: 'Team',
-      facilities: 'Facilities',
       contact: 'Contact'
     },
     // Hero Section
@@ -19,7 +17,7 @@ const translations = {
       tagline: 'Indian Innovation with Japanese Technology',
       taglineJp: '日本の技術でインドの革新',
       subtitle: 'Powering the future of motion control',
-      cta: 'Discover Our Vision',
+      // cta: 'Discover Our Vision',
       scrollHint: 'Scroll to explore'
     },
     // Introduction
@@ -225,11 +223,9 @@ const translations = {
       home: 'ホーム',
       about: '会社概要',
       platform: 'プラットフォーム',
-      ecosystem: 'エコシステム',
-      products: '製品',
+      ecosystem: 'タクミエコシステム',
       partnerships: 'パートナーシップ',
       team: 'チーム',
-      facilities: '施設',
       contact: 'お問い合わせ'
     },
     // Hero Section
