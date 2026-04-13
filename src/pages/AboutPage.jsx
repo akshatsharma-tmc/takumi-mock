@@ -65,21 +65,21 @@ const AboutPage = () => {
       country: 'India',
       flag: '🇮🇳',
       description: 'Engineering and PoC & Proto Production',
-      image: 'https://images.pexels.com/photos/5858521/pexels-photo-5858521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600'
+      image: '/Bangalore.jpg'
     },
     {
       name: 'Takumi – Tenkasi',
       country: 'India',
       flag: '🇮🇳',
       description: 'Engineering, Production & Test Lab',
-      image: 'https://images.pexels.com/photos/6432110/pexels-photo-6432110.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=400&w=600'
+      image: '/Tenkasi.jpg'
     },
     {
       name: 'Takumi – Chennai',
       country: 'India',
       flag: '🇮🇳',
       description: 'Upcoming',
-      image: 'https://via.placeholder.com/600x400?text=Upcoming'
+      image: '/Chennai.jpg'
     }
   ];
 
