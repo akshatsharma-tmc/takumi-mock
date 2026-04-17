@@ -12,10 +12,10 @@ import ScrollToTop from "./components/ScrollToTop";
 // Pages
 import HomePage from "./pages/HomePage";
 import AboutPage from "./pages/AboutPage";
-import PlatformPage from "./pages/PlatformPage";
 import EcosystemPage from "./pages/EcosystemPage";
 import PartnershipsPage from "./pages/PartnershipsPage";
 import TeamPage from "./pages/TeamPage";
+import OurFacilitiesPage from "./pages/OurFacilitiesPage";
 import ContactPage from "./pages/ContactPage";
 
 function App() {
@@ -29,10 +29,10 @@ function App() {
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/platform" element={<PlatformPage />} />
               <Route path="/ecosystem" element={<EcosystemPage />} />
               <Route path="/partnerships" element={<PartnershipsPage />} />
               <Route path="/team" element={<TeamPage />} />
+              <Route path="/facilities" element={<OurFacilitiesPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>
           </main>

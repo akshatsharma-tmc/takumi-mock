@@ -1,17 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { 
-  ArrowRight, 
-  Car, 
-  Wifi, 
-  Users, 
-  Zap,
-  MapPin,
-  Check,
-  Award,
-  TrendingUp
-} from 'lucide-react';
+import { ArrowRight, Car, Wifi, Users, Zap, TrendingUp } from 'lucide-react';
 
 const AboutPage = () => {
   const { t } = useLanguage();
@@ -52,44 +42,6 @@ const AboutPage = () => {
     { icon: Zap, label: 'Electric', color: 'bg-yellow-500' }
   ];
 
-  const locations = [
-    {
-      name: 'Takumi – Kyoto',
-      country: 'Japan',
-      flag: '🇯🇵',
-      description: 'Technology Partnerships – Market Research',
-      image: 'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Nzd8MHwxfHNlYXJjaHwxfHxreW90byUyMGphcGFufGVufDB8fHx8MTczMjEyMDAwMHww&ixlib=rb-4.1.0&q=85&w=400'
-    },
-    {
-      name: 'Takumi – Bangalore',
-      country: 'India',
-      flag: '🇮🇳',
-      description: 'Engineering and PoC & Proto Production',
-      image: '/Bangalore.jpg'
-    },
-    {
-      name: 'Takumi – Tenkasi',
-      country: 'India',
-      flag: '🇮🇳',
-      description: 'Engineering, Production & Test Lab',
-      image: '/Tenkasi.jpg'
-    },
-    {
-      name: 'Takumi – Chennai',
-      country: 'India',
-      flag: '🇮🇳',
-      description: 'Upcoming',
-      image: '/Chennai.jpg'
-    }
-  ];
-
-  const certifications = [
-    { name: 'ISO 9001:2015', description: 'Quality Management' },
-    { name: 'ISO 14001:2015', description: 'Environmental Management' },
-    { name: 'ISO 27001:2013', description: 'Information Security' },
-    { name: 'ESD Association', description: 'Electrostatic Discharge Control' }
-  ];
-
   return (
     <div data-testid="about-page" className="pt-20">
       {/* Hero Section */}
@@ -98,7 +50,7 @@ const AboutPage = () => {
           <div className="absolute top-0 left-0 w-96 h-96 bg-takumi-red rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-takumi-red rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <span className="text-takumi-red font-semibold tracking-widest uppercase text-sm">
@@ -114,7 +66,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
+      {/* Mission Section */}
       <section
         ref={setRef('mission')}
         data-testid="mission-section"
@@ -133,11 +85,11 @@ const AboutPage = () => {
             </div>
             <div className="space-y-8">
               <h2 className="font-manrope text-3xl sm:text-4xl font-bold text-industrial-slate">
-                Our Mission & Vision
+                Our Mission
               </h2>
               <div className="p-8 bg-gray-50 border-l-4 border-takumi-red rounded-r-sm">
                 <p className="text-lg text-gray-700 italic leading-relaxed">
-                  "{t('intro.mission')}"
+                  "To create a robust ecosystem for Mass Custom Engineering of Intelligent Motion Products at Speed and Scale for societal technology adoption."
                 </p>
               </div>
               <p className="text-gray-600 leading-relaxed">
@@ -146,6 +98,47 @@ const AboutPage = () => {
                 standards in motion control engineering.
               </p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Vision Section */}
+      <section
+        ref={setRef('case')}
+        data-testid="vision-section"
+        className="py-24 lg:py-32 bg-industrial-slate text-white"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            isVisible.case ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
+            <h2 className="font-manrope text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
+              Our Vision
+            </h2>
+            <h3 className="font-manrope text-2xl sm:text-3xl font-semibold text-white mb-6">
+              Democratizing CASE Mobility
+            </h3>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Harmonizing product development & distribution away from the traditional 
+              tiered setup to create a more accessible and efficient mobility ecosystem.
+            </p>
+          </div>
+
+          <div className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-1000 delay-300 ${
+            isVisible.case ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
+            {caseItems.map((item, index) => (
+              <div
+                key={item.label}
+                className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-sm text-center hover:bg-white/10 transition-colors"
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className={`w-16 h-16 mx-auto mb-6 ${item.color} rounded-sm flex items-center justify-center`}>
+                  <item.icon className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="font-manrope text-xl font-bold">{item.label}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -203,188 +196,6 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* CASE Mobility Section */}
-      <section
-        ref={setRef('case')}
-        data-testid="case-detail-section"
-        className="py-24 lg:py-32 bg-industrial-slate text-white"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible.case ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            <h2 className="font-manrope text-3xl sm:text-4xl lg:text-5xl font-bold mb-6">
-              {t('intro.caseTitle')}
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              Harmonizing product development & distribution away from the traditional 
-              tiered setup to create a more accessible and efficient mobility ecosystem.
-            </p>
-          </div>
-
-          <div className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-1000 delay-300 ${
-            isVisible.case ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            {caseItems.map((item, index) => (
-              <div
-                key={item.label}
-                className="bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-sm text-center hover:bg-white/10 transition-colors"
-                style={{ transitionDelay: `${index * 100}ms` }}
-              >
-                <div className={`w-16 h-16 mx-auto mb-6 ${item.color} rounded-sm flex items-center justify-center`}>
-                  <item.icon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="font-manrope text-xl font-bold">{item.label}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Facilities Section */}
-      <section
-        ref={setRef('facilities')}
-        data-testid="facilities-section"
-        className="py-24 lg:py-32 bg-gray-50"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible.facilities ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            <span className="text-takumi-red font-semibold tracking-widest uppercase text-sm">
-              Global Presence
-            </span>
-            <h2 className="font-manrope text-3xl sm:text-4xl font-bold text-industrial-slate mt-4">
-              Our Facilities
-            </h2>
-          </div>
-
-          <div className={`grid lg:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${
-            isVisible.facilities ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            {locations.map((location, index) => (
-              <div
-                key={location.name}
-                className="group"
-                style={{ transitionDelay: `${index * 150}ms` }}
-              >
-                <div className="relative overflow-hidden rounded-t-sm">
-                  <div className="aspect-[16/10]">
-                    <img
-                      src={location.image}
-                      alt={location.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="absolute top-4 right-4 text-3xl">{location.flag}</div>
-                </div>
-                <div className="bg-white p-6 rounded-b-sm border border-t-0 border-gray-100 group-hover:shadow-lg transition-all">
-                  <div className="flex items-center space-x-2 text-takumi-red mb-2">
-                    <MapPin className="w-5 h-5" />
-                    <span className="text-sm font-medium">{location.country}</span>
-                  </div>
-                  <h3 className="font-manrope text-xl font-bold text-industrial-slate mb-2">
-                    {location.name}
-                  </h3>
-                  <p className="text-gray-600">{location.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Certifications Section */}
-      <section
-        ref={setRef('certs')}
-        data-testid="certifications-section"
-        className="py-24 lg:py-32 bg-white"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`text-center mb-16 transition-all duration-1000 ${
-            isVisible.certs ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            <span className="text-takumi-red font-semibold tracking-widest uppercase text-sm">
-              Quality Assured
-            </span>
-            <h2 className="font-manrope text-3xl sm:text-4xl font-bold text-industrial-slate mt-4">
-              Certifications & Compliance
-            </h2>
-          </div>
-
-          <div className={`grid sm:grid-cols-2 lg:grid-cols-4 gap-8 transition-all duration-1000 delay-300 ${
-            isVisible.certs ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            {certifications.map((cert) => (
-              <div
-                key={cert.name}
-                className="bg-gray-50 p-8 rounded-sm border border-gray-100 text-center hover:shadow-lg hover:border-takumi-red/20 transition-all"
-              >
-                <div className="w-16 h-16 mx-auto mb-4 bg-takumi-red/10 rounded-full flex items-center justify-center">
-                  <Award className="w-8 h-8 text-takumi-red" />
-                </div>
-                <h3 className="font-manrope text-lg font-bold text-industrial-slate mb-2">
-                  {cert.name}
-                </h3>
-                <p className="text-gray-600 text-sm">{cert.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Capabilities Section */}
-      <section
-        ref={setRef('capabilities')}
-        data-testid="capabilities-section"
-        className="py-24 lg:py-32 bg-gray-50"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className={`grid lg:grid-cols-2 gap-16 items-center transition-all duration-1000 ${
-            isVisible.capabilities ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
-          }`}>
-            <div className="space-y-8">
-              <div>
-                <h2 className="font-manrope text-3xl sm:text-4xl font-bold text-industrial-slate">
-                  Production Capabilities
-                </h2>
-                <p className="text-gray-600 mt-4">
-                  Our facilities are equipped with state-of-the-art equipment and processes 
-                  to deliver high-quality motion control products.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  'SMT Assembly Lines',
-                  'Automated Optical Inspection',
-                  'In-Circuit Testing',
-                  'Functional Testing',
-                  'Environmental Testing',
-                  'ESD-Protected Areas'
-                ].map((capability) => (
-                  <div key={capability} className="flex items-center space-x-3">
-                    <div className="w-6 h-6 bg-takumi-red/10 rounded-full flex items-center justify-center flex-shrink-0">
-                      <Check className="w-4 h-4 text-takumi-red" />
-                    </div>
-                    <span className="text-gray-700 text-sm">{capability}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="relative">
-              <img
-                src="https://images.pexels.com/photos/5858521/pexels-photo-5858521.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                alt="Production Facility"
-                className="rounded-sm shadow-xl"
-              />
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-takumi-red/10 rounded-sm -z-10" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="py-24 bg-takumi-red text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -396,7 +207,7 @@ const AboutPage = () => {
             can power your next project.
           </p>
           <Link
-            to="/platform"
+            to="/ecosystem?tab=platform"
             data-testid="about-platform-cta"
             className="inline-flex items-center space-x-2 px-8 py-4 bg-white text-takumi-red font-semibold rounded-sm hover:bg-gray-100 transition-colors"
           >

@@ -10,7 +10,8 @@ import {
   Zap,
   Cpu,
   Cog,
-  Cloud
+  Cloud,
+  MapPin
 } from 'lucide-react';
 
 const HomePage = () => {
@@ -209,6 +210,94 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* Page Preview Section */}
+      <section
+        ref={setRef('pageSnapshots')}
+        data-testid="page-snapshots"
+        className="py-24 lg:py-32 bg-white"
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`text-center mb-16 transition-all duration-1000 ${
+            isVisible.pageSnapshots ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
+            <span className="text-takumi-red font-semibold tracking-widest uppercase text-sm">
+              Explore Takumi
+            </span>
+            <h2 className="font-manrope text-3xl sm:text-4xl lg:text-5xl font-bold text-industrial-slate mt-4">
+              A quick look at every corner of Takumi
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto mt-4">
+              Discover the vision, ecosystem, partnerships, and people driving our motion control innovation.
+            </p>
+          </div>
+
+          <div className={`grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 transition-all duration-1000 delay-300 ${
+            isVisible.pageSnapshots ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
+            {[
+              {
+                title: 'About Takumi',
+                icon: Users,
+                description: 'A glimpse of our mission, values, and the Democratizing CASE Mobility story.',
+                to: '/about',
+                cta: 'Read the story'
+              },
+              {
+                title: 'Takumi Ecosystem',
+                icon: Cpu,
+                description: 'Explore how products, services and the Motion Magic Platform work together.',
+                to: '/ecosystem',
+                cta: 'Explore the ecosystem'
+              },
+              {
+                title: 'Partnerships',
+                icon: Cloud,
+                description: 'Meet the technology partners and certification support that accelerate our solutions.',
+                to: '/partnerships',
+                cta: 'Meet our partners'
+              },
+              {
+                title: 'Team',
+                icon: Cog,
+                description: 'See the founders, engineers and advisors powering our motion control expertise.',
+                to: '/team',
+                cta: 'See the team'
+              },
+              {
+                title: 'Our Facilities',
+                icon: MapPin,
+                description: 'Discover our manufacturing sites, quality systems, and global production capabilities.',
+                to: '/facilities',
+                cta: 'Explore facilities'
+              }
+            ].map((card, index) => (
+              <div
+                key={card.title}
+                className="group bg-gray-50 border border-gray-100 rounded-sm p-8 hover:-translate-y-1 hover:shadow-xl transition-all duration-300"
+                style={{ transitionDelay: `${index * 100}ms` }}
+              >
+                <div className="w-14 h-14 bg-takumi-red/10 text-takumi-red rounded-sm flex items-center justify-center mb-6">
+                  <card.icon className="w-7 h-7" />
+                </div>
+                <h3 className="font-manrope text-xl font-bold text-industrial-slate mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-gray-600 mb-6">
+                  {card.description}
+                </p>
+                <Link
+                  to={card.to}
+                  className="inline-flex items-center space-x-2 text-takumi-red font-semibold hover:space-x-3 transition-all"
+                >
+                  <span>{card.cta}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Ecosystem Preview Section */}
       <section
         ref={setRef('ecosystem')}
@@ -251,7 +340,7 @@ const HomePage = () => {
 
           <div className="text-center mt-12">
             <Link
-              to="/platform"
+              to="/ecosystem?tab=platform"
               data-testid="explore-platform-btn"
               className="inline-flex items-center space-x-2 px-8 py-4 bg-takumi-red text-white font-semibold rounded-sm hover:bg-takumi-red-dark transition-colors"
             >

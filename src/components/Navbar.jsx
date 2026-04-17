@@ -27,9 +27,9 @@ const Navbar = () => {
   const navLinks = [
     { path: '/', label: t('nav.home') },
     { path: '/about', label: t('nav.about') },
-    { path: '/platform', label: t('nav.platform') },
     { path: '/ecosystem', label: t('nav.ecosystem') },
     { path: '/partnerships', label: t('nav.partnerships') },
+    { path: '/facilities', label: t('nav.facilities') },
     { path: '/team', label: t('nav.team') },
     { path: '/contact', label: t('nav.contact') },
   ];
